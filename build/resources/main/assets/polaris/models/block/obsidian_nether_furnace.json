@@ -1,8 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "top": "polaris:block/obsidian_nether_furnace_top",
-        "front": "polaris:block/obsidian_nether_furnace_front",
-        "side": "polaris:block/obsidian_nether_furnace_side"
-    }
-}
