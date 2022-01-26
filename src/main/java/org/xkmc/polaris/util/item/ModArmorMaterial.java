@@ -11,45 +11,49 @@ import org.xkmc.polaris.Polaris;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements IArmorMaterial {
-    STARDUST("stardust", 5, new int[]{4, 9, 7, 4}, 15,
-            SoundEvents.ARMOR_EQUIP_DIAMOND, 4.0F, 0.1F, () -> {
-        return Ingredient.of(ModItems.EndAlloyIngot.get());
+    STARDUST("stardust", 5, new int[]{3, 8, 6, 3}, 15,
+            SoundEvents.ARMOR_EQUIP_DIAMOND, 3.0F, 0.1F, () -> {
+        return Ingredient.of(ModItems.LifeOfSeeds.get());
     }),
-    STARBURST("starburst", 5, new int[]{5, 9, 8, 4}, 15,
-    SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F, () -> {
-        return Ingredient.of(ModItems.EndAlloyIngot.get());
+    STARBURST("starburst", 5, new int[]{3, 9, 6, 3}, 15,
+    SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.125F, () -> {
+        return Ingredient.of(ModItems.LifeOfSeeds.get());
     }),
-    STAR_LORD("star_lord", 5, new int[]{6, 9, 9, 6}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F, () -> {
-        return Ingredient.of(ModItems.EndAlloyIngot.get());
+    STAR_LORD("star_lord", 5, new int[]{4, 9, 7, 4}, 15,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.15F, () -> {
+        return Ingredient.of(ModItems.LifeOfSeeds.get());
     }),
     MSBase("ms_base", 5, new int[]{3, 8, 6, 3}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F, () -> {
-        return Ingredient.of(ModItems.EndAlloyIngot.get());
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+        return Ingredient.of(ModItems.HeartOfOre.get());
     }),
     MSWhiteTiger("ms_white_tiger", 5, new int[]{4, 9, 7, 4}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F, () -> {
-        return Ingredient.of(ModItems.EndAlloyIngot.get());
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+        return Ingredient.of(ModItems.HeartOfOre.get());
     }),
     MSBlueDragon("ms_blue_dragon", 5, new int[]{4, 9, 7, 4}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F, () -> {
-        return Ingredient.of(ModItems.EndAlloyIngot.get());
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+        return Ingredient.of(ModItems.HeartOfOre.get());
     }),
-    MSVermilionBird("ms_vermilion_bird", 5, new int[]{4, 9, 7, 4}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F, () -> {
-        return Ingredient.of(ModItems.EndAlloyIngot.get());
+    MSVermilionBird("ms_vermilion_bird", 5, new int[]{3, 8, 6, 3}, 15,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+        return Ingredient.of(ModItems.HeartOfOre.get());
     }),
     MSBlackTortoise("ms_black_tortoise", 5, new int[]{4, 9, 7, 4}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.2F, () -> {
-        return Ingredient.of(ModItems.EndAlloyIngot.get());
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.5F, 0.2F, () -> {
+        return Ingredient.of(ModItems.HeartOfOre.get());
     }),
-    SupremeGenesis("supreme_genesis", 5, new int[]{4, 10, 7, 4}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F, () -> {
-        return Ingredient.of(ModItems.EndAlloyIngot.get());
+    SupremeGenesis("supreme_genesis", 5, new int[]{7, 10, 10, 7}, 15,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 6.0F, 0.225F, () -> {
+        return Ingredient.of(ModItems.SpiritOfDivinity.get());
     }),
-    LittleCat("little_cat", 5, new int[]{7, 10, 10, 7}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.1F, () -> {
-        return Ingredient.of(ModItems.EndAlloyIngot.get());
+    EmperorsNewClothes("emperors_new_clothes", 5, new int[]{4, 8, 6, 4}, 15,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+        return Ingredient.of(ModItems.TheSoilOfEverything.get());
+    }),
+    LittleCat("little_cat", 5, new int[]{4, 8, 6, 4}, 15,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
+        return Ingredient.of(ModItems.TheSoilOfEverything.get());
     });
     private final String name;
     private final int durabilityMultiplier;
