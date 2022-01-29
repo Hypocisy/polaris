@@ -14,7 +14,7 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.xkmc.polaris.util.Registration;
+import org.xkmc.polaris.registry.Registration;
 
 import java.util.stream.Collectors;
 
@@ -24,7 +24,7 @@ public class Polaris
 {
     public static final String MOD_ID = "polaris";
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
 
     public Polaris() {
 

@@ -1,4 +1,4 @@
-package org.xkmc.polaris.util.block;
+package org.xkmc.polaris.registry.blocks;
 
 import java.util.function.Supplier;
 import net.minecraft.block.AbstractBlock;
@@ -9,10 +9,10 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
-import org.xkmc.polaris.setup.ModItemGroup;
-import org.xkmc.polaris.util.Registration;
+import org.xkmc.polaris.util.PolarisItemGroup;
+import org.xkmc.polaris.registry.Registration;
 
-public class ModBlocks {
+public class PolarisBlocks {
 
     public static final RegistryObject<Block> AlloySmithingTable = register("alloy_smithing_table", () ->
             new Block(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).harvestTool(ToolType.PICKAXE).harvestLevel(2)));
@@ -27,7 +27,7 @@ public class ModBlocks {
 
     protected static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block) {
         RegistryObject<T> registryObject = registerNoItem(name, block);
-        Registration.ITEMS.register(name, () -> new BlockItem(registryObject.get(), new Item.Properties().tab(ModItemGroup.TAB_POLARIS_BLOCKS)));
+        Registration.ITEMS.register(name, () -> new BlockItem(registryObject.get(), new Item.Properties().tab(PolarisItemGroup.TAB_POLARIS_BLOCKS)));
         return registryObject;
     }
 

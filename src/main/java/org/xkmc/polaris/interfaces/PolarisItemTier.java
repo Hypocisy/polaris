@@ -1,4 +1,4 @@
-package org.xkmc.polaris.util.item;
+package org.xkmc.polaris.interfaces;
 
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
@@ -6,7 +6,7 @@ import net.minecraft.util.LazyValue;
 
 import java.util.function.Supplier;
 
-public enum ModItemTier implements IItemTier {
+public enum PolarisItemTier implements IItemTier {
     ;
 
     private final int level;
@@ -16,7 +16,7 @@ public enum ModItemTier implements IItemTier {
     private final int enchantmentValue;
     private final LazyValue<Ingredient> repairIngredient;
 
-    ModItemTier(int level, int uses, float speed, float damage, int enchantmentValue, Supplier<Ingredient> repairIngredient) {
+    PolarisItemTier(int level, int uses, float speed, float damage, int enchantmentValue, Supplier<Ingredient> repairIngredient) {
         this.level = level;
         this.uses = uses;
         this.speed = speed;

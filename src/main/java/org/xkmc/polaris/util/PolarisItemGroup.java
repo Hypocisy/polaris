@@ -1,18 +1,18 @@
-package org.xkmc.polaris.setup;
+package org.xkmc.polaris.util;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import org.xkmc.polaris.util.item.ModItems;
+import org.xkmc.polaris.registry.items.PolarisItems;
 
-public class ModItemGroup {
+public class PolarisItemGroup {
     public static final ItemGroup TAB_POLARIS_MISCELLANEOUS;
 
     static {
         TAB_POLARIS_MISCELLANEOUS = new ItemGroup("tab_polaris_miscellaneous") {
             @Override
             public ItemStack makeIcon() {
-                return new ItemStack(ModItems.HeartOfOre.get());
+                return new ItemStack(PolarisItems.HeartOfOre.get());
             }
         };
     }
@@ -23,7 +23,7 @@ public class ModItemGroup {
         TAB_POLARIS_BLOCKS = new ItemGroup("tab_polaris_blocks") {
             @Override
             public ItemStack makeIcon() {
-                return new ItemStack(ModItems.LifeOfSeeds.get());
+                return new ItemStack(PolarisItems.LifeOfSeeds.get());
             }
         };
     }
