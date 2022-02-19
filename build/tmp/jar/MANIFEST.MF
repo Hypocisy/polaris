@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Specification-Title: polaris
-Specification-Vendor: polarissareus
-Specification-Version: 0.4-pre
-Implementation-Title: polaris_mod
-Implementation-Version: 1.16.5-0.4-pre
-Implementation-Vendor: polarissareus
-Implementation-Timestamp: 2022-01-26T16:41:55+0800
-
