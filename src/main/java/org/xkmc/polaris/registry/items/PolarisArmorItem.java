@@ -1,57 +1,68 @@
-package org.xkmc.polaris.item.armor;
+package org.xkmc.polaris.registry.items;
 
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.IArmorMaterial;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
-import org.xkmc.polaris.Polaris;
 import org.xkmc.polaris.interfaces.PolarisArmorMaterial;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 public class PolarisArmorItem extends ArmorItem {
+    public static final List<Effect> STARDUST_Effects = new ArrayList<>();
 
-    private static final Map<IArmorMaterial, Effect> MATERIAL_EFFECT_MAP =
-            new ImmutableMap.Builder<IArmorMaterial, Effect>()
-                    .put(PolarisArmorMaterial.STARDUST, Effects.HEALTH_BOOST)
+    public static List<Effect> getSTARDUST_Effects() {
+        STARDUST_Effects.add(Effects.DIG_SPEED);
+        STARDUST_Effects.add(Effects.HEALTH_BOOST);
+        return STARDUST_Effects;
+    }
+
+    private static final Map<IArmorMaterial, List<Effect>> MATERIAL_EFFECT_MAP =
+            new ImmutableMap.Builder<IArmorMaterial, List<Effect>>()
+                    .put(PolarisArmorMaterial.STARDUST, getSTARDUST_Effects())
                     .build();
 
-    public PolarisArmorItem(IArmorMaterial materialIn, EquipmentSlotType slots, Properties settings) {
+    PolarisArmorItem(IArmorMaterial materialIn, EquipmentSlotType slots, Properties settings) {
         super(materialIn, slots, settings);
     }
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        if (hasFullSuitOfArmorOn(player)) {
+        if (hasFullSuitOfArmorOn(player) && !player.isCreative()) {
             evaluateArmorEffects(player);
         }
         super.onArmorTick(stack, world, player);
     }
 
     private void evaluateArmorEffects(PlayerEntity player) {
-        for (Map.Entry<IArmorMaterial, Effect> entry : MATERIAL_EFFECT_MAP.entrySet()) {
+        for (Map.Entry<IArmorMaterial, List<Effect>> entry : MATERIAL_EFFECT_MAP.entrySet()) {
             IArmorMaterial mapArmorMaterial = entry.getKey();
-            Effect mapStatusEffect = entry.getValue();
+            List<Effect> mapStatusEffects = entry.getValue();
             if (hasCorrectArmorOn(mapArmorMaterial, player)) {
-                addStatusEffectsForMaterial(player, mapArmorMaterial, mapStatusEffect);
+                for (Effect mapStatusEffect : mapStatusEffects) {
+                    addStatusEffectsForMaterial(player, mapArmorMaterial, mapStatusEffect);
+                }
+
             }
         }
     }
 
     private void addStatusEffectsForMaterial(PlayerEntity player, IArmorMaterial mapArmorMaterial, Effect mapStatusEffect) {
         boolean hasPlayerEffect = !Objects.equals(player.getEffect(mapStatusEffect), null);
-        if (hasCorrectArmorOn(mapArmorMaterial, player)) {
-            player.addEffect(new EffectInstance(mapStatusEffect, 40));
-            return;
+        if (hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect && player.tickCount % 1000 == 0) {
+//            player.addEffect(new EffectInstance(mapStatusEffect, 100));
+            player.setAbsorptionAmount(2f);
         }
-        player.removeEffect(mapStatusEffect);
     }
 
 

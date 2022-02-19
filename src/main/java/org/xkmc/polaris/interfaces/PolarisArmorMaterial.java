@@ -13,49 +13,27 @@ import java.util.function.Supplier;
 
 public enum PolarisArmorMaterial implements IArmorMaterial {
     STARDUST("stardust", 5, new int[]{3, 8, 6, 3}, 15,
-            SoundEvents.ARMOR_EQUIP_DIAMOND, 3.0F, 0.1F, () -> {
-        return Ingredient.of(PolarisItems.LifeOfSeeds.get());
-    }),
+            SoundEvents.ARMOR_EQUIP_DIAMOND, 3.0F, 0.1F, () -> Ingredient.of(PolarisItems.LifeOfSeeds.get())),
     STARBURST("starburst", 5, new int[]{3, 9, 6, 3}, 15,
-    SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.125F, () -> {
-        return Ingredient.of(PolarisItems.LifeOfSeeds.get());
-    }),
+    SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.125F, () -> Ingredient.of(PolarisItems.LifeOfSeeds.get())),
     STAR_LORD("star_lord", 5, new int[]{4, 9, 7, 4}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.15F, () -> {
-        return Ingredient.of(PolarisItems.LifeOfSeeds.get());
-    }),
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.15F, () -> Ingredient.of(PolarisItems.LifeOfSeeds.get())),
     MSBase("ms_base", 5, new int[]{3, 8, 6, 3}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
-        return Ingredient.of(PolarisItems.HeartOfOre.get());
-    }),
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> Ingredient.of(PolarisItems.HeartOfOre.get())),
     MSWhiteTiger("ms_white_tiger", 5, new int[]{4, 9, 7, 4}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
-        return Ingredient.of(PolarisItems.HeartOfOre.get());
-    }),
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> Ingredient.of(PolarisItems.HeartOfOre.get())),
     MSBlueDragon("ms_blue_dragon", 5, new int[]{4, 9, 7, 4}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
-        return Ingredient.of(PolarisItems.HeartOfOre.get());
-    }),
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> Ingredient.of(PolarisItems.HeartOfOre.get())),
     MSVermilionBird("ms_vermilion_bird", 5, new int[]{3, 8, 6, 3}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
-        return Ingredient.of(PolarisItems.HeartOfOre.get());
-    }),
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> Ingredient.of(PolarisItems.HeartOfOre.get())),
     MSBlackTortoise("ms_black_tortoise", 5, new int[]{4, 9, 7, 4}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.5F, 0.2F, () -> {
-        return Ingredient.of(PolarisItems.HeartOfOre.get());
-    }),
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.5F, 0.2F, () -> Ingredient.of(PolarisItems.HeartOfOre.get())),
     SupremeGenesis("supreme_genesis", 5, new int[]{7, 10, 10, 7}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 6.0F, 0.225F, () -> {
-        return Ingredient.of(PolarisItems.SpiritOfDivinity.get());
-    }),
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 6.0F, 0.225F, () -> Ingredient.of(PolarisItems.SpiritOfDivinity.get())),
     EmperorsNewClothes("emperors_new_clothes", 5, new int[]{4, 8, 6, 4}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
-        return Ingredient.of(PolarisItems.TheSoilOfEverything.get());
-    }),
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> Ingredient.of(PolarisItems.TheSoilOfEverything.get())),
     LittleCat("little_cat", 5, new int[]{4, 8, 6, 4}, 15,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
-        return Ingredient.of(PolarisItems.TheSoilOfEverything.get());
-    });
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> Ingredient.of(PolarisItems.TheSoilOfEverything.get()));
     private final String name;
     private final int durabilityMultiplier;
     private final int[] slotProtections;
@@ -65,7 +43,7 @@ public enum PolarisArmorMaterial implements IArmorMaterial {
     private final float knockbackResistance;
     private final LazyValue<Ingredient> repairIngredient;
 
-    PolarisArmorMaterial(String name, int durabilityMultiplier, int[] slotProtections, int enchantmentValue, SoundEvent soundEvent, float toughness, float knockbackResistance, Supplier<Ingredient> ingredientSupplier) {
+    PolarisArmorMaterial(String name, int durabilityMultiplier, int[] slotProtections, int enchantmentValue, SoundEvent soundEvent, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
         this.name = name;
         this.durabilityMultiplier = durabilityMultiplier;
         this.slotProtections = slotProtections;
@@ -73,7 +51,7 @@ public enum PolarisArmorMaterial implements IArmorMaterial {
         this.sound = soundEvent;
         this.toughness = toughness;
         this.knockbackResistance = knockbackResistance;
-        this.repairIngredient = new LazyValue<>(ingredientSupplier);
+        this.repairIngredient = new LazyValue<>(repairIngredient);
     }
 
     @Override

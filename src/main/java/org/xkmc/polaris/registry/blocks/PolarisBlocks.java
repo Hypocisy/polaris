@@ -15,12 +15,13 @@ import org.xkmc.polaris.registry.Registration;
 public class PolarisBlocks {
 
     public static final RegistryObject<Block> AlloySmithingTable = register("alloy_smithing_table", () ->
-            new Block(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).harvestTool(ToolType.PICKAXE).harvestLevel(2)));
+            new AlloySmithingTable(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).harvestTool(ToolType.PICKAXE).harvestLevel(2)));
     public static final RegistryObject<Block> ObsidianNetherFurnace = register("obsidian_nether_furnace", () ->
-            new Block(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).harvestTool(ToolType.PICKAXE).harvestLevel(2)));
+            new AlloySmithingTable(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).harvestTool(ToolType.PICKAXE).harvestLevel(2)));
     public static void register(){
 
-    };
+    }
+
     private static <T extends Block> RegistryObject<T> registerNoItem(String name, java.util.function.Supplier<T> block) {
         return Registration.BLOCKS.register(name, block);
     }
