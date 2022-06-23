@@ -32,6 +32,7 @@
 171.214.10.140	comic.bilibili.com
 61.128.142.240	show.bilibili.com
 122.228.195.210	service.bilibili.com
-118.116.2.140 member.bilibili.com
-171.214.10.140 account.bilibili.com
+118.116.2.140   member.bilibili.com
+171.214.10.140  account.bilibili.com
 171.214.10.141	t.bilibili.com
+171.214.10.140  b23.tv
